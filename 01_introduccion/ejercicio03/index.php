@@ -1,5 +1,11 @@
 <?php
 
+//Mostramos la variable $GLOBALS
+print("<h2>Variable \$GLOBALS</h2>");
+print("<pre>");
+print_r($GLOBALS);
+print("</pre>");
+
 //Mostramos la variable $_SERVER
 print("<h2>Variable \$_SERVER</h2>");
 print("<pre>");
@@ -16,12 +22,6 @@ print("</pre>");
 print("<h2>Variable \$_POST</h2>");
 print("<pre>");
 print_r($_POST);
-print("</pre>");
-
-//Mostramos la variable $GLOBALS
-print("<h2>Variable \$GLOBALS</h2>");
-print("<pre>");
-print_r($GLOBALS);
 print("</pre>");
 
 //Mostramos la variable $_FILES
