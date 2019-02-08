@@ -8,7 +8,7 @@ $url="https://api.openweathermap.org/data/2.5/weather?q=".$ciudad."&appid=".$app
 $json = file_get_contents($url);
 
 
-$weather=json_decode($json);
+$weather=json_decode($json);//Convertir el texto a objeto
 echo "<pre>";
 print_r($weather);
 echo "</pre>";
@@ -21,7 +21,7 @@ echo "</br>";
 echo "<hr>";
 echo "<table border=1>";
 echo "<tr>";
-echo "<td>Temperatura actual:</td>";
+echo "<td>Temperatura media:</td>";
 echo "<td>".$weather->main->temp."</td>";
 echo "</tr>";
 echo "<tr>";
