@@ -1,7 +1,7 @@
 <?php
 
 //Declaro la funcion
-function incializar_array($numero_elementos,$min,$max)
+function inicializar_array($numero_elementos,$min,$max)
 {
     $numeros=array();
 
