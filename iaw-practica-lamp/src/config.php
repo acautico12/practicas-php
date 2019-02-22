@@ -6,8 +6,9 @@ define('DB_USER', 'lamp_user');
 define('DB_PASSWORD', 'lamp_user');
 
 $mysqli = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-
+/*
 echo "<pre>";
 print_r($mysqli);
 echo "</print>";
+*/
 ?>
