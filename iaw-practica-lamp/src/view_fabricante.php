@@ -14,7 +14,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM fabricante ORDER BY codigo DESC")
 </head>
 
 <body>
-<a href="add.html">Add New Data</a><br/><br/>
+<a href="formulario_fabricante.html">Add New Data</a><br/><br/>
 	<table width='80%' border=0>
 
 	<tr bgcolor='#CCCCCC'>

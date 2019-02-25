@@ -24,7 +24,7 @@ $query= "INSERT INTO fabricante (nombre) VALUES (?)";
 
 	// display success message
 	echo "<font color='green'>Data added successfully.";
-	echo "<br/><a href='index.php'>View Result</a>";
+	echo "<br/><a href='view_fabricante.php'>View Result</a>";
 
 mysqli_close($mysqli);
 
