@@ -13,6 +13,11 @@ include_once("config.php");
 
 $nombre_fabricante =$_POST['nombre_fabricante'];
 
+if(empty($nombre_fabricante) ==1 ){
+	echo "Variable Vacia";
+	exit;
+}
+
 $query= "INSERT INTO fabricante (nombre) VALUES (?)";
 
 	// insert data to database

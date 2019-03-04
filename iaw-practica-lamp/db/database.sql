@@ -8,7 +8,8 @@ CREATE TABLE users (
   id int(11) NOT NULL auto_increment,
   name varchar(100) NOT NULL,
   age int(3) NOT NULL,
-  email varchar(100) NOT NULL,
+  email varchar(100) NOT NULL UNIQUE,
+  password varchar(512)NOT NULL,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -32,6 +33,7 @@ CREATE TABLE producto (
   codigo_fabricante INT UNSIGNED NOT NULL,
   FOREIGN KEY (codigo_fabricante) REFERENCES fabricante(codigo)
 );
+INSERT INTO users VALUES(1, 'root', 99, 'root@iaw.es', 'e10adc3949ba59abbe56e057f20f883e');
 
 INSERT INTO fabricante VALUES(1, 'Asus');
 INSERT INTO fabricante VALUES(2, 'Lenovo');
