@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 //Conexion a BD
 include_once("config.php");
 
@@ -28,6 +31,7 @@ mysqli_close($mysqli);
 
 if ($resultado->num_rows == 1){
     echo "Bienvenido a tu server";
+    $_SESSION['logincorrecto'] = 1;
 }else{
     echo "Eres un impostor";
 }

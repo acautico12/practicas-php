@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['logincorrecto'])) {
+  $_SESSION['logincorrecto'] = 0;
+}
+
+?>
+
 <!doctype html>
 <html lang="es">
   <head>
