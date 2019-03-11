@@ -5,6 +5,11 @@ session_start();
 //Conexion a BD
 include_once("config.php");
 
+
+if (!isset($_SESSION['logincorrecto'])) {
+    $_SESSION['logincorrecto'] = 0;
+}
+
 //Recibo Variables
 $email = $_POST["email"];
 $password = $_POST["password"];
