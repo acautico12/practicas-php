@@ -35,10 +35,11 @@ $query= "SELECT * ".
 mysqli_close($mysqli);
 
 if ($resultado->num_rows == 1){
-    echo "Bienvenido a tu server";
     $_SESSION['logincorrecto'] = 1;
+    header('Location: panel.php');
+    
 }else{
-    echo "Eres un impostor";
+    header('Location: login.php');
 }
 
 ?>
