@@ -43,14 +43,14 @@ if (!isset($_SESSION['logincorrecto'])) {
   </head>
   <body class="text-center">
     <form class="form-signin" action="checklogin.php" method="post">
-  <img class="mb-4" src="../assets/logo.svg" alt="" width="72" height="72">
-  <h1 class="h3 mb-3 font-weight-normal">Formulario de Login</h1>
-  <label for="inputEmail" class="sr-only">Email</label>
-  <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
-  <label for="inputPassword" class="sr-only">Contraseña</label>
-  <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
-  <p class="mt-5 mb-3 text-muted">&copy; Proyecto Miguel Angel Vargas IAW</p>
-</form>
-</body>
+      <img class="mb-4" src="../assets/logo.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Formulario de Login</h1>
+      <label for="inputEmail" class="sr-only">Email</label>
+      <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+      <label for="inputPassword" class="sr-only">Contraseña</label>
+      <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+      <p class="mt-5 mb-3 text-muted">&copy; Proyecto Miguel Angel Vargas IAW</p>
+    </form>
+  </body>
 </html>

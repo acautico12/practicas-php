@@ -10,7 +10,7 @@ if ($_SESSION['logincorrecto'] != 1) {
 include_once("config.php");
 
 // fetching data in descending order (lastest entry first)
-$result = mysqli_query($mysqli, "SELECT producto.codigo AS codigo_producto, producto.nombre AS nombre_producto, producto.precio AS precio_producto, fabricante.nombre AS nombre_fabricante, producto.imagen AS imagen FROM producto INNER JOIN fabricante ON producto.codigo_fabricante=fabricante.codigo ORDER BY producto.codigo DESC");
+$result = mysqli_query($mysqli, "SELECT id AS id_usuario, name AS nombre_usuario, age AS edad_usuario, email AS email_usuario FROM users");
 ?>
 
 
@@ -65,13 +65,13 @@ $result = mysqli_query($mysqli, "SELECT producto.codigo AS codigo_producto, prod
       <div class="sidebar-sticky">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="#">
+            <a class="nav-link" href="panel.php">
               <span data-feather="home"></span>
               Productos <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="panel_usuarios.php">
+            <a class="nav-link active"" href="#">
               <span data-feather="shopping-cart"></span>
               Usuarios
             </a>
@@ -95,15 +95,14 @@ $result = mysqli_query($mysqli, "SELECT producto.codigo AS codigo_producto, prod
 
       <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>-->
       
-      <h2>Productos <a href="new_producto.php" class="btn btn-sm btn-outline-secondary">Nuevo</a></h2>
+      <h2>Usuarios <a href="new_usuario.php" class="btn btn-sm btn-outline-secondary">Nuevo</a></h2>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>
             <tr>
-              <th>Codigo</th>
               <th>Nombre</th>
-              <th>Precio</th>
-              <th>Nombre Fabricante</th>
+              <th>Edad</th>
+              <th>Email</th>
               <th></th>
             </tr>
           </thead>
@@ -112,11 +111,10 @@ $result = mysqli_query($mysqli, "SELECT producto.codigo AS codigo_producto, prod
 	        while($res = mysqli_fetch_array($result)) {
         ?>
             <tr>
-              <td><?php echo utf8_encode($res['codigo_producto']);?></td>
-              <td><?php echo utf8_encode($res['nombre_producto']);?></td>
-              <td><?php echo $res['precio_producto'];?>€</td>
-              <td><?php echo $res['nombre_fabricante'];?></td>
-              <td><a href="edit_producto.php?codigo_producto=<?php echo $res['codigo_producto'];?>" class="btn btn-sm btn-outline-secondary">Editar</a> <a href="eliminar_producto.php?codigo_producto=<?php echo $res['codigo_producto'];?>" class="btn btn-sm btn-outline-secondary">Eliminar</a></td>
+              <td><?php echo utf8_encode($res['nombre_usuario']);?></td>
+              <td><?php echo utf8_encode($res['edad_usuario']);?></td>
+              <td><?php echo $res['email_usuario'];?></td>
+              <td><a href="edit_usuario.php?codigo_usuario=<?php echo $res['id_usuario'];?>" class="btn btn-sm btn-outline-secondary">Editar</a> <a href="eliminar_usuario.php?codigo_usuario=<?php echo $res['id_usuario'];?>" class="btn btn-sm btn-outline-secondary">Eliminar</a></td>
             </tr>
         <?php    
         }

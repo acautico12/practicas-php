@@ -73,7 +73,7 @@ $result = mysqli_query($mysqli, "SELECT producto.codigo AS codigo_producto, prod
               <p class="card-text"><?php echo $res['precio_producto'];?>€</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a href="view_producto.php?codigo_producto=<?php echo $res['codigo_producto'];?>" class="btn btn-sm btn-outline-secondary">View</a>
+                  <a href="view_producto.php?codigo_producto=<?php echo $res['codigo_producto'];?>" class="btn btn-sm btn-outline-secondary">Ver</a>
                 </div>
                 <small class="text-muted"><?php echo $res['nombre_fabricante'];?></small>
               </div>

@@ -12,9 +12,12 @@ RUN apt-get update \
     && apt-get install -y libapache2-mod-php \
     && apt-get install -y php-mysql
 
+
 ENV APACHE_RUN_USER www-data
 ENV APACHE_RUN_GROUP www-data
 ENV APACHE_LOG_DIR /var/log/apache2
+
+USER www-data:www-data
 
 EXPOSE 80
 
