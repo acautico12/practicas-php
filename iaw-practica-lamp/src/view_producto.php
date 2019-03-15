@@ -74,9 +74,6 @@ $result = mysqli_query($mysqli, "SELECT producto.nombre AS nombre_producto, prod
               <p class="card-text"><?php echo utf8_encode($res['nombre_producto']);?></p>
               <p class="card-text"><?php echo $res['precio_producto'];?>€</p>
               <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <a href="" class="btn btn-sm btn-outline-secondary">View</a>
-                </div>
                 <small class="text-muted"><?php echo $res['nombre_fabricante'];?></small>
               </div>
             </div>

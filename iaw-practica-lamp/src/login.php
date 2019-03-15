@@ -2,6 +2,11 @@
 
 session_start();
 
+if ($_SESSION['logincorrecto'] == 1) {
+  header('Location: panel.php');
+  exit;
+}
+
 if (!isset($_SESSION['logincorrecto'])) {
   $_SESSION['logincorrecto'] = 0;
 }
@@ -50,6 +55,7 @@ if (!isset($_SESSION['logincorrecto'])) {
       <label for="inputPassword" class="sr-only">Contraseña</label>
       <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+      <strong><a href="index.php">Inicio</a></strong>
       <p class="mt-5 mb-3 text-muted">&copy; Proyecto Miguel Angel Vargas IAW</p>
     </form>
   </body>
