@@ -11,11 +11,11 @@ include_once("config.php");
 
 //Recibo codigo
 
-$codigo_producto = $_GET['codigo_producto'];
+$codigo_fabricante = $_GET['codigo_fabricante'];
 
 // fetching data in descending order (lastest entry first)
-$result = mysqli_query($mysqli, "SELECT codigo AS codigo_fabricante, nombre AS nombre_fabricante FROM fabricante");
-$resultado = mysqli_query($mysqli, "SELECT nombre AS nombre_producto, precio AS precio_producto, codigo_fabricante AS cod_fab_prod FROM producto WHERE codigo = ". $codigo_producto);
+$result = mysqli_query($mysqli, "SELECT nombre AS nombre_fabricante FROM fabricante WHERE codigo =". $codigo_fabricante);
+
 ?>
 
 <!doctype html>
@@ -23,7 +23,7 @@ $resultado = mysqli_query($mysqli, "SELECT nombre AS nombre_producto, precio AS 
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Modificar un producto</title>
+    <title>Modificar un fabricante</title>
 
     <!-- Bootstrap core CSS -->
 <link href="../css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
@@ -54,7 +54,7 @@ $resultado = mysqli_query($mysqli, "SELECT nombre AS nombre_producto, precio AS 
     <div class="container d-flex justify-content-between">
       <a href="#" class="navbar-brand d-flex align-items-center">
         <!--<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>-->
-        <strong>Modificar un producto</strong>
+        <strong>Modificar un fabricante</strong>
         <strong><a href="logout.php">Salir</a></strong>
       </a>
       <!--
@@ -74,44 +74,19 @@ $resultado = mysqli_query($mysqli, "SELECT nombre AS nombre_producto, precio AS 
     <div class="row">
     <div class="col-md-4"></div>
     <!--- Inicio tarjeta --->
-        <form action="modificar_producto.php?codigo_producto=<?php echo $codigo_producto;?>" method="post" enctype="multipart/form-data">
+        <form action="modificar_fabricante.php?codigo_fabricante=<?php echo $codigo_fabricante;?>" method="post" >
                 <?php
-	                while($resul = mysqli_fetch_array($resultado)) {
+	                while($resul = mysqli_fetch_array($result)) {
                 ?>
             <div class="form-group">
-                <label for="nombre">Nombre del producto</label>
-                <input type="text" name="nombre" id="nombre" value="<?php echo $resul['nombre_producto'];?>" class="form-control" required="required">
-            </div>
-
-            <div class="form-group">
-                <label for="precio">Precio producto</label>
-                <input type="number" name="precio" id="precio" value="<?php echo $resul['precio_producto'];?>" min="0" pattern="^\d*(\.\d{0,2})?$" step="0.01" class="form-control" required="required">
-            </div> 
-            
-            <div class="form-group">
-                <label for="fabricante">Fabricante</label>
-                <select class="form-control" name="fabricante" id="fabricante" required="required">
-                <?php
-	                while($res = mysqli_fetch_array($result)) {
-                ?>
-                <option value="<?php echo $res['codigo_fabricante'];?>" <?php if($resul['cod_fab_prod'] == $res['codigo_fabricante']) echo " selected"; ?> > <?php echo $res['nombre_fabricante'];?></option>
-                <?php    
-                }
-                
-                ?>
-                </select>
+                <label for="nombre">Nombre fabricante</label>
+                <input type="text" name="nombre" id="nombre" value="<?php echo $resul['nombre_fabricante'];?>" class="form-control" required="required">
             </div>
 
             <?php    
                 }
                 mysqli_close($msqli);
             ?>
-
-
-            <div class="form-group">
-              <label for="imagen">Adjunta una imagen</label>
-              <input type="file" class="form-control-file" name= "imagen" id="imagen">
-            </div>
             
             <button class="btn btn-lg btn-primary btn-block" type="submit">Subir</button>
         </form>
@@ -126,9 +101,9 @@ $resultado = mysqli_query($mysqli, "SELECT nombre AS nombre_producto, precio AS 
 <footer class="text-muted">
   <div class="container">
     <p class="float-right">
-      <a href="panel.php">Volver panel de control</a>
+      <a href="panel_fabricantes.php">Volver panel de control</a>
     </p>
-    <p>Modificar producto&copy;</p>
+    <p>Modificar fabricante&copy;</p>
   </div>
 </footer>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
