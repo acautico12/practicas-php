@@ -71,7 +71,7 @@ $result = mysqli_query($mysqli, "SELECT id AS id_usuario, name AS nombre_usuario
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active"" href="#">
+            <a class="nav-link active" href="#">
               <span data-feather="shopping-cart"></span>
               Usuarios
             </a>
@@ -87,13 +87,6 @@ $result = mysqli_query($mysqli, "SELECT id AS id_usuario, name AS nombre_usuario
     </nav>
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-      <!-- <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Panel de control</h1>
-        <div class="btn-toolbar mb-2 mb-md-0">
-        </div>
-      </div>
-
-      <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>-->
       
       <h2>Usuarios <a href="new_usuario.php" class="btn btn-sm btn-outline-secondary">Nuevo</a></h2>
       <div class="table-responsive">
