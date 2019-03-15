@@ -9,8 +9,17 @@ if ($_SESSION['logincorrecto'] != 1) {
 // including the database connection file
 include_once("config.php");
 
+$buscar = $_GET['buscar'];
+
+if (empty($buscar)){
+  $result = mysqli_query($mysqli, "SELECT producto.codigo AS codigo_producto, producto.nombre AS nombre_producto, producto.precio AS precio_producto, fabricante.nombre AS nombre_fabricante, producto.imagen AS imagen FROM producto INNER JOIN fabricante ON producto.codigo_fabricante=fabricante.codigo ORDER BY producto.codigo DESC");
+}else{
+  $query = "SELECT producto.codigo AS codigo_producto, producto.nombre AS nombre_producto, producto.precio AS precio_producto, fabricante.nombre AS nombre_fabricante, producto.imagen AS imagen FROM producto INNER JOIN fabricante ON producto.codigo_fabricante=fabricante.codigo WHERE producto.nombre LIKE '%$buscar%'";
+  $result = mysqli_query($mysqli, $query);
+}
+
 // fetching data in descending order (lastest entry first)
-$result = mysqli_query($mysqli, "SELECT producto.codigo AS codigo_producto, producto.nombre AS nombre_producto, producto.precio AS precio_producto, fabricante.nombre AS nombre_fabricante, producto.imagen AS imagen FROM producto INNER JOIN fabricante ON producto.codigo_fabricante=fabricante.codigo ORDER BY producto.codigo DESC");
+
 ?>
 
 
@@ -51,7 +60,9 @@ $result = mysqli_query($mysqli, "SELECT producto.codigo AS codigo_producto, prod
   <body>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
   <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="index.php">Store</a>
-  <input class="form-control form-control-dark w-100" type="text" placeholder="Buscar" aria-label="Search">
+  <form action="panel.php" method="get">
+  <input name="buscar" class="form-control form-control-dark w-100" type="text" placeholder="Buscar" aria-label="Search">
+  </form>
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
       <a class="nav-link" href="logout.php">Salir</a>
@@ -109,7 +120,7 @@ $result = mysqli_query($mysqli, "SELECT producto.codigo AS codigo_producto, prod
               <td><?php echo utf8_encode($res['nombre_producto']);?></td>
               <td><?php echo $res['precio_producto'];?>€</td>
               <td><?php echo $res['nombre_fabricante'];?></td>
-              <td><a href="edit_producto.php?codigo_producto=<?php echo $res['codigo_producto'];?>" class="btn btn-sm btn-outline-secondary">Editar</a> <a href="eliminar_producto.php?codigo_producto=<?php echo $res['codigo_producto'];?>" class="btn btn-sm btn-outline-secondary">Eliminar</a></td>
+              <td><a href="edit_producto.php?codigo_producto=<?php echo $res['codigo_producto'];?>" class="btn btn-sm btn-outline-secondary">Editar</a> <a href="eliminar_producto.php?codigo_producto=<?php echo $res['codigo_producto'];?>" class="btn btn-sm btn-outline-secondary">Eliminar</a> <a href="view_producto.php?codigo_producto=<?php echo $res['codigo_producto'];?>" class="btn btn-sm btn-outline-secondary">Ver</a></td>
             </tr>
         <?php    
         }

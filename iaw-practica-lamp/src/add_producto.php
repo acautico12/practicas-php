@@ -31,8 +31,7 @@ include_once("config.php");
 $dir_subida = '../productos/imagenes/';
 
 
-
-if(empty($_FILES['imagen']) == 1){
+if($_FILES['imagen']['size'] == 0){
     $imagen = '../assets/default.png'; 
 }else{
     // Obtenemos el nuevo nombre
